@@ -1,0 +1,26 @@
+I=imread("circles.png");
+subplot(111);
+imshow(I), title('Original')
+
+SE = strel('diamond', 1);
+I = squelette(I, SE);
+imshow(I)
+
+function result = squelette(A, SE)
+    SE_matrix = SE.Neighborhood;
+    SE_complement_matrix = ~SE_matrix;
+    SE_complement = strel(SE_complement_matrix);
+    result = A - bwhitmiss(A, SE, SE_complement);
+    skeletonImage= result;
+    
+    while true
+
+        
+        
+        diffImage = skeletonImage - openedImage;
+
+        if nnz(diffImage) == 0
+            break;
+        end
+    end
+end

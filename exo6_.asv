@@ -1,0 +1,17 @@
+I = imread('formes.png');
+
+se = strel('square', 20);
+
+b = imopen(I, se);
+c = imclose(I, se);
+
+d = imopen(c, se);
+
+subplot(323);
+imshow(I), title('a (original)')
+subplot(324);
+imshow(b), title('b (close square )')
+subplot(325);
+imshow(c), title('c')
+subplot(326);
+imshow(d), title('d')

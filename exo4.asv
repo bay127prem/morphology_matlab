@@ -1,0 +1,8 @@
+I = imread('rice.png');
+I2 = im2bw(I, graythresh(I)); %im2bw permet de convertir du niveau de gris en binaire et 
+%graythresh() estime automatiquement le seuil pour la binarisation
+I3 = imtophat(I,strel('square',12));
+I4 = im2bw(I3, graythresh(I3))
+
+subplot(121);
+imshow(I2);
